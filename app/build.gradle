@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'basel.kersh.finalapplicationbasel'
-    compileSdk {
+    compileSdk 33 {
         version = release(37)
     }
 
@@ -55,4 +55,7 @@ dependencies {
     implementation "androidx.room:room-paging:$room_version"
 
 
-}
+
+
+    }
+
