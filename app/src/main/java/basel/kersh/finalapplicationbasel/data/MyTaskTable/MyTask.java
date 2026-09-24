@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class MyTask {
     @PrimaryKey(autoGenerate = true)
-    public long keyld;
+    public long keyId;
     public int importance;
     public String shortTile;
     public  String text;
