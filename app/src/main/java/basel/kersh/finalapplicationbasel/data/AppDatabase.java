@@ -9,7 +9,7 @@ import basel.kersh.finalapplicationbasel.data.MyTaskTable.MyTaskQuery;
 import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUserQuery;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
 
-public class AppDatabase {
+
     /**
      * @Database(entities = {MyUser.class, MySubject.class, MyTask.class}, version = 1)
 
@@ -59,4 +59,4 @@ public class AppDatabase {
             return db;
         }
     }
-}
+
