@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         AppDatabase db=AppDatabase.getDB(getApplicationContext());
         MySubjectQuery subjectQuery = db.getMySubjectQuery();
         MySubject s1=new MySubject();
-        s1.setTitle ("Math");
+        s1.setTitle("Math");
         MySubject s2=new MySubject();
         s2.title="Computers";
         subjectQuery.insert(s1);
