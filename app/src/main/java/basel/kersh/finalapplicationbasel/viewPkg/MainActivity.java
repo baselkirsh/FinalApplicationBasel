@@ -1,4 +1,4 @@
-package basel.kersh.finalapplicationbasel;
+package basel.kersh.finalapplicationbasel.viewPkg;
 
 import android.os.Bundle;
 
@@ -8,6 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import basel.kersh.finalapplicationbasel.R;
 import basel.kersh.finalapplicationbasel.data.AppDatabase;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubject;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
