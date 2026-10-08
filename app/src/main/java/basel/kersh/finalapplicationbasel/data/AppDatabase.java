@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import basel.kersh.finalapplicationbasel.data.MyTaskTable.MyTask;
 import basel.kersh.finalapplicationbasel.data.MyTaskTable.MyTaskQuery;
 import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUserQuery;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
@@ -57,6 +58,8 @@ import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
                         .build();
             }
             return db;
+        }
+        public MyTaskQuery MyTaskQuery() {
         }
     }
 

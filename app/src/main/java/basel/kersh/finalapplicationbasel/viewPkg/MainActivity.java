@@ -1,6 +1,8 @@
 package basel.kersh.finalapplicationbasel.viewPkg;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +16,15 @@ import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubject;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
 
 public class MainActivity extends AppCompatActivity {
+    private Button btnAddTaskScreen;
+    private Button btnRegisterScreen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         AppDatabase db=AppDatabase.getDB(getApplicationContext());
         MySubjectQuery subjectQuery = db.getMySubjectQuery();
         MySubject s1=new MySubject();
@@ -34,5 +39,21 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btnAddTaskScreen=findViewById(R.id.btnAddTaskScreen);
+        btnAddTaskScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+        btnRegisterScreen=findViewById(R.id.btnRegisterScreen);
+        btnRegisterScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
     }
 }
