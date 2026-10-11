@@ -36,4 +36,22 @@ public interface MyTaskQuery {
  @Query("SELECT * FROM MyTask WHERE title=:title ORDER BY importance DESC")
 
  LiveData<List<MyTask>> getTasksByTitle(String title);
+ @Query("SELECT * FROM MyTask WHERE description=:description ORDER BY importance DESC")
+ LiveData<List<MyTask>> getTasksByDescription(String description);
+ @Query("SELECT * FROM MyTask WHERE priority=:priority ORDER BY importance DESC")
+ LiveData<List<MyTask>> getTasksByPriority(int priority);
+ @Query("SELECT * FROM MyTask WHERE title=:title ORDER BY importance DESC")
+ LiveData<List<MyTask>> getTasksByUserIdAndTitle(long userId, String title);
+
+
+ void insert(MyTask[] tasks);
+
+ void update(MyTask[] tasks);
+
+ void delete(MyTask[] tasks);
+
+ void deleteTaskById(long taskId);
+ @Query("SELECT * FROM MyTask WHERE description=:description ORDER BY importance DESC")
+
+ void updateTask(long taskId, String title, String description, int priority);
 }
