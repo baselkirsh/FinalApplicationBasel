@@ -60,6 +60,11 @@ import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
             return db;
         }
         public MyTaskQuery MyTaskQuery() {
+            return null;
+        }
+
+        public MyUserQuery myUserQuery() {
+            return null;
         }
     }
 

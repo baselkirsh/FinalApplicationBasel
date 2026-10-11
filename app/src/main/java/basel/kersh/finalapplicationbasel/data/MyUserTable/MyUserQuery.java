@@ -1,5 +1,6 @@
 package basel.kersh.finalapplicationbasel.data.MyUserTable;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -37,6 +38,13 @@ public interface MyUserQuery
     @Update//تعديل مستعمل او قائمة مستعملين
     void update(MyUser...values);
 
+    LiveData<List<MyUser>> getAllUsers();
+
+    LiveData<List<MyUser>> getUsersByUserId(long userId);
+
+    LiveData<List<MyUser>> getUsersByEmail(String myEmail);
+
+    LiveData<List<MyUser>> getUsersByPassw(String myPassw);
 }
 
 
