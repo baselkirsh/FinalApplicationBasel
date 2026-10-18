@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+
 import basel.kersh.finalapplicationbasel.data.AppDatabase;
 import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUser;
 import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUserQuery;
@@ -15,7 +16,7 @@ public class UserRepository {
     private LiveData<List<MyUser>> allUser;
     public UserRepository(Application application) {
         AppDatabase db = AppDatabase.getDB(application);
-        userQuery = db.myUserQuery();
+        userQuery = db.getMyUserQuery();
         allUser = userQuery.getAllUsers();
     }
 
