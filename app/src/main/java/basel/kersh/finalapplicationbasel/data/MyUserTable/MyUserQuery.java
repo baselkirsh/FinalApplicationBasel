@@ -45,6 +45,9 @@ public interface MyUserQuery
     LiveData<List<MyUser>> getUsersByEmail(String myEmail);
 
     LiveData<List<MyUser>> getUsersByPassw(String myPassw);
+
+
+    LiveData<MyUser> getUserById(long userId);
 }
 
 

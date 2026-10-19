@@ -32,9 +32,17 @@ public class UserRepository {
     }
     public LiveData<List<MyUser>> getUserByPassw(String myPassw){
         return userQuery.getUsersByPassw(myPassw);
+    }
+       public LiveData<MyUser>getUserById(long userId) {
+        return userQuery.getUserById(userId);
+
+           }
+
 
     }
-}
+
+
+
 
 
 
