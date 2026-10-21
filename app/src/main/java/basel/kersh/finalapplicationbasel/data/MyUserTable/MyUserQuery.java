@@ -37,16 +37,16 @@ public interface MyUserQuery
     void insert(MyUser myUser);
     @Update//تعديل مستعمل او قائمة مستعملين
     void update(MyUser...values);
-
+    @Query("SELECT * FROM MyUser")
     LiveData<List<MyUser>> getAllUsers();
-
+    @Query("SELECT * FROM MyUser WHERE keyid = :userId LIMIT 1")
     LiveData<List<MyUser>> getUsersByUserId(long userId);
-
+    @Query("SELECT * FROM MyUser WHERE email = :myEmail LIMIT 1")
     LiveData<List<MyUser>> getUsersByEmail(String myEmail);
-
+    @Query("SELECT * FROM MyUser WHERE passw = :myPassw LIMIT 1")
     LiveData<List<MyUser>> getUsersByPassw(String myPassw);
 
-
+    @Query("SELECT * FROM MyUser WHERE keyid = :userId LIMIT 1")
     LiveData<MyUser> getUserById(long userId);
 }
 
