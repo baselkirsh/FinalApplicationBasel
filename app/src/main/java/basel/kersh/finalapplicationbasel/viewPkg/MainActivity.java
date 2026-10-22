@@ -1,5 +1,6 @@
 package basel.kersh.finalapplicationbasel.viewPkg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,33 +26,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
-        AppDatabase db=AppDatabase.getDB(getApplicationContext());
+        AppDatabase db = AppDatabase.getDB(getApplicationContext());
         MySubjectQuery subjectQuery = db.getMySubjectQuery();
-        MySubject s1=new MySubject();
-        s1.setTitle("Math");
-        MySubject s2=new MySubject();
-        s2.title="Computers";
-        subjectQuery.insert(s1);
-        subjectQuery.insert(s2);
+        if (subjectQuery.checkSubject("Math") == null) {
+            MySubject s1 = new MySubject();
+            s1.setTitle("Math");
+            subjectQuery.insert(s1);
+        }
+        if (subjectQuery.checkSubject("Computers") == null) {
+            MySubject s2 = new MySubject();
+            s2.setTitle("Computers");
+            subjectQuery.insert(s2);
+        }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        btnAddTaskScreen=findViewById(R.id.btnAddTaskScreen);
+        View mainView = findViewById(R.id.main);
+        if (mainView != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(mainView, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+        btnAddTaskScreen = findViewById(R.id.btnAddTaskScreen);
         btnAddTaskScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                Intent intent = new Intent(MainActivity.this, ActivityAddTask.class);
+                startActivity(intent);
             }
         });
-        btnRegisterScreen=findViewById(R.id.btnRegisterScreen);
+        btnRegisterScreen = findViewById(R.id.btnRegisterScreen);
         btnRegisterScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent intent = new Intent(MainActivity.this, activity_register.class);
+                startActivity(intent);
             }
         });
 

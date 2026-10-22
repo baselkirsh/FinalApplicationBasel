@@ -16,7 +16,7 @@ public class TaskRepository {
 
     public TaskRepository(Application application) {
         AppDatabase db = AppDatabase.getDB(application);
-        taskQuery = db.MyTaskQuery();
+        taskQuery = db.getMyTaskQuery();
         allTasks = taskQuery.getAllTasks();
     }
 

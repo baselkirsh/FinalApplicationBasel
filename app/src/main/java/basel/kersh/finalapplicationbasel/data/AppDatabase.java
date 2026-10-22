@@ -2,20 +2,23 @@ package basel.kersh.finalapplicationbasel.data;
 
 import android.content.Context;
 
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import basel.kersh.finalapplicationbasel.data.MyTaskTable.MyTask;
 import basel.kersh.finalapplicationbasel.data.MyTaskTable.MyTaskQuery;
+import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUser;
 import basel.kersh.finalapplicationbasel.data.MyUserTable.MyUserQuery;
+import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubject;
 import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
 
 
-    /**
-     * @Database(entities = {MyUser.class, MySubject.class, MyTask.class}, version = 1)
+
+      @Database(entities = {MyUser.class, MySubject.class, MyTask.class}, version =2)
 
 
-     */
+
     public abstract class AppDatabase extends RoomDatabase {
 
         /**
@@ -58,9 +61,6 @@ import basel.kersh.finalapplicationbasel.data.mySubjectTable.MySubjectQuery;
                         .build();
             }
             return db;
-        }
-        public MyTaskQuery MyTaskQuery() {
-            return null;
         }
     }
 

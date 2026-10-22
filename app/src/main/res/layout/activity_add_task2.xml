@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <EditText
         android:id="@+id/TextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Task" />
+        android:layout_height="81dp"
+        android:hint="Add New Task" />
 
-    <TextView
+    <EditText
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Task Title" />
+        android:layout_height="101dp"
+        android:hint="Task Title" />
 
-    <TextView
+    <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Task Description" />
+        android:layout_height="159dp"
+        android:hint="Task Description" />
 
-    <TextView
+    <EditText
         android:id="@+id/etPriority"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Number" />
+        android:layout_height="139dp"
+        android:hint="Number" />
 
     <Button
         android:id="@+id/btnSaveTask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
         android:text="Save Task" />
 </LinearLayout>
