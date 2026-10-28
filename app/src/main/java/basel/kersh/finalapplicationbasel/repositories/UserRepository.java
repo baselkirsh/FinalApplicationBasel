@@ -37,9 +37,26 @@ public class UserRepository {
         return userQuery.getUserById(userId);
 
            }
+           public void insertUser(MyUser[] myUsers){
 
+           }
+           public void deleteUser(MyUser myUser){userQuery.delete(myUser);}
+
+
+    public MyUser checkEmailPassw(String myEmail, String myPassw) {
+        return userQuery.checkEmailPassw(myEmail, myPassw);
+    }
+    public void insert(MyUser [] users){
 
     }
+    public void update(MyUser[] users){
+
+    }
+
+    public LiveData<List<MyUser>> getAll() {return allUser; //userIds
+
+    }
+}
 
 
 
