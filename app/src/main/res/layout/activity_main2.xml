@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".viewPkg.MainActivity">
 
@@ -12,11 +13,13 @@
         android:id="@+id/btnAddTaskScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add New Task" />
+        android:text="Add New Task"
+        android:textSize="48sp" />
 
     <Button
         android:id="@+id/btnRegisterScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register User" />
+        android:text="Register User"
+        android:textSize="48sp" />
 </LinearLayout>

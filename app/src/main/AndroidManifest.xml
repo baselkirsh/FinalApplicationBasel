@@ -15,11 +15,6 @@
             android:name=".viewPkg.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".viewPkg.ActivityAddTask"
@@ -31,6 +26,19 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".viewPkg.activity_register"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".viewPkg.signin"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".viewPkg.signup"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
