@@ -1,6 +1,7 @@
 package basel.kersh.finalapplicationbasel.data.viewmodel;
 
 import android.app.Application;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -40,5 +41,9 @@ public class UserViewModel extends AndroidViewModel {
     public void deleteById(MyUser user)
     {
         repository.deleteUser(user);
+    }
+
+    public MyUser login(EditText email, EditText password) {
+        return null;
     }
 }
