@@ -2,6 +2,7 @@ package basel.kersh.finalapplicationbasel.viewPkg;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,8 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import basel.kersh.finalapplicationbasel.R;
 
 public class activity_main extends AppCompatActivity {
-private Button btnAddTaskScreen;
-private Button btnRegisterScreen;
+    private Button btnAddTaskScreen;
+    private Button btnRegisterScreen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,5 +48,10 @@ private Button btnRegisterScreen;
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
