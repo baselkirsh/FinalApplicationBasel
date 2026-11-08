@@ -1,5 +1,4 @@
 package basel.kersh.finalapplicationbasel.viewPkg;
-
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,6 +8,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import basel.kersh.finalapplicationbasel.R;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -22,5 +25,13 @@ public class SplashScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 3000); // 3000 ملي ثانية = 3 ثوانٍ
     }
 }
