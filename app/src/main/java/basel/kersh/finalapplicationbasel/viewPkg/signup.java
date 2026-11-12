@@ -66,18 +66,17 @@ public class signup extends AppCompatActivity {
             signuppassw.requestFocus();
             return;
         }
-        MyUser user = UserViewModel.signup(signupGmail,signuppassw);
-        if (user != null)
+       MyUser m = new MyUser();
+        m.setEmail(SuGmail);
+        m.setPassw(SuPassw);
+        userViewModel.insertUser(m);
 
         {
-            Toast.makeText(this, "Welcome" + user.getFullName(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(signup.this, MainActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "Welcome" +SuGmail, Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(signup.this, MainActivity.class);
+//            startActivity(intent);
             finish();
-        } else {
-            Toast.makeText(this,"Invalid email or password", Toast.LENGTH_SHORT).show();
-        }
 
     }
-}
+}}
 

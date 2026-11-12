@@ -22,6 +22,8 @@ public class signin extends AppCompatActivity {
     private EditText Email, Password;
     private Button btnsignin;
     private UserViewModel userViewModel;
+    private Button btnsignUpsi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +35,28 @@ public class signin extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btnsignUpsi= findViewById(R.id.btnsignUpsi);
         btnsignin = findViewById(R.id.btnsignin);
+btnsignUpsi.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(signin.this, activity_register.class);
+        startActivity(i);
 
+    }
+});
         btnsignin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 signinuser();
+            }
+        });
+        btnsignUpsi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent k = new Intent(signin.this, signup.class);
+                startActivity(k);
             }
         });
     }
@@ -61,18 +79,24 @@ public class signin extends AppCompatActivity {
             return;
         }
         {
-            MyUser user = userViewModel.login(Email,Password);
+            MyUser user = userViewModel.login(email,password);
             if (user != null)
 
             {
                 Toast.makeText(this, "Welcome" + user.getFullName(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(signin.this, MainActivity.class);
+                Intent intent = new Intent(signin.this, activity_main.class);
                 startActivity(intent);
                 finish();
             } else {
                 Toast.makeText(this,"Invalid email or password", Toast.LENGTH_SHORT).show();
+
             }
-        } } }
+        }
+
+    }
+
+}
+
 
 
 
