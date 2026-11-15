@@ -5,9 +5,41 @@
     <item
         android:id="@+id/itmSettings"
         android:title="Settings" />
-    <item android:title="Item" />
     <item
+        android:id="@+id/itmSignout"
+        android:title="Item" />
+    <item
+        android:id="@+id/itmHistory"
         android:icon="@mipmap/ic_launcher"
         android:title="Clothe Style BK"
         app:showAsAction="always|withText" />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الإعدادات (Settings)" />
+
+        <Button
+            android:id="@+id/btnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="السجل (History)" />
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="تسجيل الخروج (Sign Out)" />
+
+    </LinearLayout>
 </menu>
