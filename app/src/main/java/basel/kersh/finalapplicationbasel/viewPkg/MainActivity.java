@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -87,5 +88,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             return true;
+        }
+        public void showYesNoDialog()
+        {
+            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+            builder.setTitle("Log out");
+
         }
     }

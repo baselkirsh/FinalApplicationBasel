@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "396542683997",
+    "project_id": "finalapplicationbasel",
+    "storage_bucket": "finalapplicationbasel.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396542683997:android:f4554274a3b40d4c1096b4",
+        "android_client_info": {
+          "package_name": "basel.kersh.finalapplicationbasel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhF5GCuouvaFUfGKPnBdMRS1eiDlXJ0xE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
