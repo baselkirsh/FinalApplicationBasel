@@ -21,9 +21,8 @@ import basel.kersh.finalapplicationbasel.data.viewmodel.UserViewModel;
 
 public class signup extends AppCompatActivity {
     private Button btnsignup;
-    private EditText Usertext, signupGmail, signuppassw;
+    private EditText signupGmail, signuppassw;
     private UserViewModel userViewModel;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,22 +38,21 @@ public class signup extends AppCompatActivity {
         btnsignup = findViewById(R.id.btnsignup);
         signupGmail = findViewById(R.id.signupgmail);
         signuppassw = findViewById(R.id.signuppassword);
-        btnsignup = findViewById(R.id.btnsignup);
-        btnsignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signupuser();
-            }
-        });
+
+        if (btnsignup != null) {
+            btnsignup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    signupuser();
+                }
+            });
+        }
     }
 
     private void signupuser() {
-        Intent r = new Intent(signup.this, activity_register.class);
-        startActivity(r);
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         String SuGmail = signupGmail.getText().toString().trim();
         String SuPassw = signuppassw.getText().toString().trim();
-
 
         if (SuGmail.isEmpty()){
             signupGmail.setError("Email is required");
@@ -66,17 +64,20 @@ public class signup extends AppCompatActivity {
             signuppassw.requestFocus();
             return;
         }
-       MyUser m = new MyUser();
+        MyUser m = new MyUser();
         m.setEmail(SuGmail);
         m.setPassw(SuPassw);
-        userViewModel.insertUser(m);
+        m.setFullName(SuGmail);
 
-        {
-            Toast.makeText(this, "Welcome" +SuGmail, Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(signup.this, MainActivity.class);
-//            startActivity(intent);
-            finish();
-
+        userViewModel.registerUser(m).observe(this, registeredUser -> {
+            if (registeredUser != null) {
+                Toast.makeText(this, "Welcome " + SuGmail, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(signup.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-}}
-
+}

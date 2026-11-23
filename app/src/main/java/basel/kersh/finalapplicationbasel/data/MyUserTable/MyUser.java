@@ -13,6 +13,7 @@ public class MyUser
     public String email;//بحالة لم يتم اعطاء اسم للعامود يكون اسم الصفه هو اسم العامود
     public String phone;
     public String passw;
+    public String uid;
 
     @Override
     public String toString() {
@@ -22,6 +23,7 @@ public class MyUser
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", passw='" + passw + '\'' +
+                ", uid='" + uid + '\'' +
                 '}';
     }
     public String getFullName(){
@@ -65,6 +67,20 @@ public class MyUser
     public void setPassw(String passw) {
         this.passw = passw;
     }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setFirestoreUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getFirestoreUid() {
+        return uid;
+    }
 }
-
-

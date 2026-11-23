@@ -44,7 +44,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `MyUser` (`keyid`,`full_Name`,`email`,`phone`,`passw`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `MyUser` (`keyid`,`full_Name`,`email`,`phone`,`passw`,`uid`) VALUES (nullif(?, 0),?,?,?,?,?)";
       }
 
       @Override
@@ -69,6 +69,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           statement.bindNull(5);
         } else {
           statement.bindString(5, entity.passw);
+        }
+        if (entity.uid == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.uid);
         }
       }
     };
@@ -88,7 +93,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `MyUser` SET `keyid` = ?,`full_Name` = ?,`email` = ?,`phone` = ?,`passw` = ? WHERE `keyid` = ?";
+        return "UPDATE OR ABORT `MyUser` SET `keyid` = ?,`full_Name` = ?,`email` = ?,`phone` = ?,`passw` = ?,`uid` = ? WHERE `keyid` = ?";
       }
 
       @Override
@@ -114,7 +119,12 @@ public final class MyUserQuery_Impl implements MyUserQuery {
         } else {
           statement.bindString(5, entity.passw);
         }
-        statement.bindLong(6, entity.keyid);
+        if (entity.uid == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.uid);
+        }
+        statement.bindLong(7, entity.keyid);
       }
     };
     this.__preparedStmtOfDelete = new SharedSQLiteStatement(__db) {
@@ -206,6 +216,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
       final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+      final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
       final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
       while (_cursor.moveToNext()) {
         final MyUser _item;
@@ -230,6 +241,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           _item.passw = null;
         } else {
           _item.passw = _cursor.getString(_cursorIndexOfPassw);
+        }
+        if (_cursor.isNull(_cursorIndexOfUid)) {
+          _item.uid = null;
+        } else {
+          _item.uid = _cursor.getString(_cursorIndexOfUid);
         }
         _result.add(_item);
       }
@@ -267,6 +283,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
       final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+      final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
       final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
       while (_cursor.moveToNext()) {
         final MyUser _item_1;
@@ -291,6 +308,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           _item_1.passw = null;
         } else {
           _item_1.passw = _cursor.getString(_cursorIndexOfPassw);
+        }
+        if (_cursor.isNull(_cursorIndexOfUid)) {
+          _item_1.uid = null;
+        } else {
+          _item_1.uid = _cursor.getString(_cursorIndexOfUid);
         }
         _result.add(_item_1);
       }
@@ -325,6 +347,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
       final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+      final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
       final MyUser _result;
       if (_cursor.moveToFirst()) {
         _result = new MyUser();
@@ -348,6 +371,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           _result.passw = null;
         } else {
           _result.passw = _cursor.getString(_cursorIndexOfPassw);
+        }
+        if (_cursor.isNull(_cursorIndexOfUid)) {
+          _result.uid = null;
+        } else {
+          _result.uid = _cursor.getString(_cursorIndexOfUid);
         }
       } else {
         _result = null;
@@ -377,6 +405,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
       final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
       final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
       final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+      final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
       final MyUser _result;
       if (_cursor.moveToFirst()) {
         _result = new MyUser();
@@ -400,6 +429,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           _result.passw = null;
         } else {
           _result.passw = _cursor.getString(_cursorIndexOfPassw);
+        }
+        if (_cursor.isNull(_cursorIndexOfUid)) {
+          _result.uid = null;
+        } else {
+          _result.uid = _cursor.getString(_cursorIndexOfUid);
         }
       } else {
         _result = null;
@@ -426,6 +460,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
           final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
           final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+          final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
           final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final MyUser _item;
@@ -450,6 +485,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
               _item.passw = null;
             } else {
               _item.passw = _cursor.getString(_cursorIndexOfPassw);
+            }
+            if (_cursor.isNull(_cursorIndexOfUid)) {
+              _item.uid = null;
+            } else {
+              _item.uid = _cursor.getString(_cursorIndexOfUid);
             }
             _result.add(_item);
           }
@@ -483,6 +523,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
           final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
           final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+          final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
           final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final MyUser _item;
@@ -507,6 +548,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
               _item.passw = null;
             } else {
               _item.passw = _cursor.getString(_cursorIndexOfPassw);
+            }
+            if (_cursor.isNull(_cursorIndexOfUid)) {
+              _item.uid = null;
+            } else {
+              _item.uid = _cursor.getString(_cursorIndexOfUid);
             }
             _result.add(_item);
           }
@@ -544,6 +590,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
           final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
           final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+          final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
           final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final MyUser _item;
@@ -568,6 +615,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
               _item.passw = null;
             } else {
               _item.passw = _cursor.getString(_cursorIndexOfPassw);
+            }
+            if (_cursor.isNull(_cursorIndexOfUid)) {
+              _item.uid = null;
+            } else {
+              _item.uid = _cursor.getString(_cursorIndexOfUid);
             }
             _result.add(_item);
           }
@@ -605,6 +657,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
           final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
           final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+          final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
           final List<MyUser> _result = new ArrayList<MyUser>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final MyUser _item;
@@ -629,6 +682,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
               _item.passw = null;
             } else {
               _item.passw = _cursor.getString(_cursorIndexOfPassw);
+            }
+            if (_cursor.isNull(_cursorIndexOfUid)) {
+              _item.uid = null;
+            } else {
+              _item.uid = _cursor.getString(_cursorIndexOfUid);
             }
             _result.add(_item);
           }
@@ -662,6 +720,7 @@ public final class MyUserQuery_Impl implements MyUserQuery {
           final int _cursorIndexOfEmail = CursorUtil.getColumnIndexOrThrow(_cursor, "email");
           final int _cursorIndexOfPhone = CursorUtil.getColumnIndexOrThrow(_cursor, "phone");
           final int _cursorIndexOfPassw = CursorUtil.getColumnIndexOrThrow(_cursor, "passw");
+          final int _cursorIndexOfUid = CursorUtil.getColumnIndexOrThrow(_cursor, "uid");
           final MyUser _result;
           if (_cursor.moveToFirst()) {
             _result = new MyUser();
@@ -685,6 +744,11 @@ public final class MyUserQuery_Impl implements MyUserQuery {
               _result.passw = null;
             } else {
               _result.passw = _cursor.getString(_cursorIndexOfPassw);
+            }
+            if (_cursor.isNull(_cursorIndexOfUid)) {
+              _result.uid = null;
+            } else {
+              _result.uid = _cursor.getString(_cursorIndexOfUid);
             }
           } else {
             _result = null;
